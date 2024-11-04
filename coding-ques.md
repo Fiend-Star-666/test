@@ -713,3 +713,239 @@ Constraint:
 * Timestamps are in ascending order.
 * Messages can be written in lowercase or uppercase English alphabets.
 
+__________________________________________
+
+I'll provide both solutions: the Rate Limiter in Java and the Ordered Pairs problem.
+
+Let me explain both solutions:
+
+1. Logger Rate Limiter:
+```java
+public class LoggerRateLimiter {
+    private final Map<String, Integer> messageTimestamps;
+```
+- Uses HashMap to store message-timestamp pairs
+- O(1) time complexity for lookups and updates
+- Maintains only the most recent timestamp for each message
+
+2. Ordered Pairs Problem:
+The problem asks to find all pairs (i,j) where arr[i] + j = arr[j] + i
+
+Key Insight:
+- Rearranging the equation: arr[i] - i = arr[j] - j
+- This means we're looking for indices that have the same difference between array value and index
+
+Two Solutions Provided:
+
+a) Brute Force (O(n²)):
+```java
+public static List<int[]> findOrderedPairs(int[] arr) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (arr[i] + j == arr[j] + i) {
+                result.add(new int[]{i, j});
+            }
+        }
+    }
+}
+```
+
+b) Optimized Solution (O(n + k) where k is number of pairs):
+```java
+public static List<int[]> findOrderedPairsOptimized(int[] arr) {
+    Map<Integer, List<Integer>> diffMap = new HashMap<>();
+    // Group indices by their arr[i] - i value
+    for (int i = 0; i < arr.length; i++) {
+        int diff = arr[i] - i;
+        diffMap.computeIfAbsent(diff, k -> new ArrayList<>()).add(i);
+    }
+}
+```
+
+Key Features:
+1. Handles negative numbers
+2. Works with duplicates
+3. Includes cases where i = j
+4. Includes cases where i > j
+
+Test Cases Cover:
+1. Basic array
+2. Array with duplicates
+3. Single element array
+4. Negative numbers
+5. Performance comparison
+
+Would you like me to:
+1. Add more test cases?
+2. Explain any specific part in more detail?
+3. Add visualization for how the algorithm works?
+4. Provide alternative solutions using different data structures?
+
+
+------------------------------------------------------------------
+
+# Array Index Pairs
+
+## Problem Statement
+Given an array of integers, find all ordered pairs of indices (i,j) that satisfy the equation: 
+```
+arr[i] + j = arr[j] + i
+```
+where i and j are valid indices in the array. Note that i can be equal to j, and i can be greater than j.
+
+## Examples
+
+### Example 1:
+```
+Input: arr = [1, 2, 3]
+Output: [(0,0), (1,1), (2,2)]
+Explanation:
+For pair (0,0): arr[0] + 0 = 1 + 0 = 1, arr[0] + 0 = 1 + 0 = 1
+For pair (1,1): arr[1] + 1 = 2 + 1 = 3, arr[1] + 1 = 2 + 1 = 3
+For pair (2,2): arr[2] + 2 = 3 + 2 = 5, arr[2] + 2 = 3 + 2 = 5
+```
+
+### Example 2:
+```
+Input: arr = [0, 0]
+Output: [(0,0), (0,1), (1,0), (1,1)]
+Explanation:
+For pair (0,0): arr[0] + 0 = 0 + 0 = 0, arr[0] + 0 = 0 + 0 = 0
+For pair (0,1): arr[0] + 1 = 0 + 1 = 1, arr[1] + 0 = 0 + 0 = 0
+For pair (1,0): arr[1] + 0 = 0 + 0 = 0, arr[0] + 1 = 0 + 1 = 1
+For pair (1,1): arr[1] + 1 = 0 + 1 = 1, arr[1] + 1 = 0 + 1 = 1
+```
+
+### Example 3:
+```
+Input: arr = [1]
+Output: [(0,0)]
+Explanation:
+Only one possible pair as there's only one index
+```
+
+## Constraints:
+* 1 ≤ arr.length ≤ 10^5
+* -10^9 ≤ arr[i] ≤ 10^9
+
+## Follow-up Questions:
+1. Can you solve it in O(n²) time complexity first?
+2. Can you optimize it further?
+3. How would you handle memory constraints with a very large input array?
+4. How would you modify your solution if we only wanted pairs where i < j?
+
+## Solution Approach Hints:
+
+### Hint 1:
+Try rearranging the equation arr[i] + j = arr[j] + i to understand what pairs of indices we're looking for.
+
+### Hint 2:
+What can you say about arr[i] - i and arr[j] - j when a pair satisfies the equation?
+
+### Hint 3:
+Consider using a hash map to group indices with the same value of arr[i] - i.
+
+## Test Cases to Consider:
+```
+1. Basic cases:
+   Input: [0, 1, 2]
+   
+2. Array with duplicates:
+   Input: [1, 1, 1]
+   
+3. Negative numbers:
+   Input: [-1, -2, -3]
+   
+4. Single element:
+   Input: [5]
+   
+5. All same elements:
+   Input: [2, 2, 2, 2]
+```
+
+## Solution Template:
+```java
+public class Solution {
+    public List<int[]> findOrderedPairs(int[] arr) {
+        // Your code here
+        return new ArrayList<>();
+    }
+}
+```
+
+## Evaluation Criteria:
+
+### Understanding (0-5):
+* Problem understanding
+* Edge case identification
+* Constraint recognition
+
+### Approach (0-5):
+* Initial solution strategy
+* Optimization ideas
+* Time/space complexity analysis
+
+### Implementation (0-5):
+* Code correctness
+* Code organization
+* Error handling
+
+### Testing (0-5):
+* Test case coverage
+* Edge case handling
+* Performance testing
+
+## Common Mistakes to Watch For:
+1. Not handling duplicate values correctly
+2. Missing self-pairs (i=j)
+3. Incorrect handling of negative numbers
+4. Not considering array bounds
+5. Inefficient implementation for large arrays
+
+## Optimal Solution Complexity:
+* Time Complexity: O(n + k) where k is the number of pairs
+* Space Complexity: O(n)
+
+## Interview Tips for Candidates:
+1. Start with the brute force solution
+2. Think about what makes two indices form a valid pair
+3. Look for patterns in the arithmetic relationship
+4. Consider using a hash map for optimization
+5. Don't forget to handle edge cases
+
+## Example Implementation (One Approach):
+```java
+public List<int[]> findOrderedPairs(int[] arr) {
+    List<int[]> result = new ArrayList<>();
+    Map<Integer, List<Integer>> diffMap = new HashMap<>();
+    
+    // Group indices by their arr[i] - i value
+    for (int i = 0; i < arr.length; i++) {
+        int diff = arr[i] - i;
+        diffMap.computeIfAbsent(diff, k -> new ArrayList<>()).add(i);
+    }
+    
+    // Generate pairs from each group
+    for (List<Integer> indices : diffMap.values()) {
+        for (int i = 0; i < indices.size(); i++) {
+            for (int j = 0; j < indices.size(); j++) {
+                result.add(new int[]{indices.get(i), indices.get(j)});
+            }
+        }
+    }
+    
+    return result;
+}
+```
+
+## Sample Discussion Questions:
+1. "How would you verify the correctness of your solution?"
+2. "What would be the impact of having mostly duplicate values in the array?"
+3. "How would you modify the solution to handle streaming data?"
+4. "Can you think of any real-world applications of this problem?"
+
+## Extended Challenges:
+1. Find the count of pairs without storing them
+2. Return pairs in sorted order
+3. Handle very large arrays with limited memory
+4. Parallelize the solution for better performance
