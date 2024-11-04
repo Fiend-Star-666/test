@@ -66,6 +66,61 @@ def two_sum(nums, target):
 - Did they consider using a hash map for O(n) solution?
 - Did they handle edge cases?
 
+Here are some additional questions on Web & HTTP Fundamentals:
+
+### Web & HTTP Fundamentals
+
+#### Q3: "What is the difference between GET and POST methods in HTTP?"
+**Expected Knowledge:**
+- GET is used to request data from a server.
+- POST is used to send data to a server.
+- GET requests can be cached, remain in the browser history, and can be bookmarked.
+- POST requests are not cached, do not remain in the browser history, and cannot be bookmarked.
+
+#### Q4: "What are cookies and how are they used in web development?"
+**Expected Knowledge:**
+- Cookies are small pieces of data stored on the client-side.
+- They are used to remember information about the user, such as login status, preferences, and tracking information.
+- Cookies have attributes like `expires`, `path`, `domain`, `secure`, and `HttpOnly`.
+
+#### Q5: "What is a REST API and how does it work?"
+**Expected Knowledge:**
+- REST stands for Representational State Transfer.
+- It is an architectural style for designing networked applications.
+- REST APIs use HTTP requests to perform CRUD operations (Create, Read, Update, Delete).
+- RESTful services are stateless and can use JSON or XML for data interchange.
+
+#### Q6: "What is the purpose of HTTP headers?"
+**Expected Knowledge:**
+- HTTP headers provide essential information about the request or response.
+- They include metadata such as content type, content length, server information, and caching policies.
+- Common headers include `Content-Type`, `Authorization`, `Cache-Control`, and `User-Agent`.
+
+#### Q7: "What is CORS and why is it important?"
+**Expected Knowledge:**
+- CORS stands for Cross-Origin Resource Sharing.
+- It is a security feature implemented by browsers to restrict web pages from making requests to a different domain than the one that served the web page.
+- CORS headers like `Access-Control-Allow-Origin` are used to specify which domains are allowed to access resources.
+
+#### Q8: "What is the difference between synchronous and asynchronous requests in web development?"
+**Expected Knowledge:**
+- Synchronous requests block the execution of code until the request completes.
+- Asynchronous requests allow the execution of code to continue while the request is being processed.
+- Asynchronous requests are typically handled using callbacks, promises, or async/await in JavaScript.
+
+#### Q9: "What is a CDN and how does it improve website performance?"
+**Expected Knowledge:**
+- CDN stands for Content Delivery Network.
+- It is a network of distributed servers that deliver web content to users based on their geographic location.
+- CDNs improve website performance by reducing latency, increasing load times, and providing redundancy.
+
+#### Q10: "What is the purpose of the `Content-Type` header in HTTP?"
+**Expected Knowledge:**
+- The `Content-Type` header indicates the media type of the resource.
+- It tells the client how to interpret the data in the response.
+- Common values include `text/html`, `application/json`, `image/png`, etc.
+
+
 ### E2: Valid Parentheses
 **Problem Statement:**
 Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. The string is valid if all brackets are closed in the correct order.

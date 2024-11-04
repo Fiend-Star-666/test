@@ -352,7 +352,9 @@ Q: "If you were building a photo-sharing app, where would you implement caching 
 ## Problem-Solving Scenarios
 
 ### 1. Rate Limiting Design
-Q: "How would you prevent a user from submitting too many requests to your API? Walk me through your thought process."
+Q: How would you prevent a user from submitting too many requests 
+   to your API? Walk me through your thought process.
+   
 
 **Key Components:**
 - Counter mechanism
