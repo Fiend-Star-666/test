@@ -702,3 +702,14 @@ class StreamAnalyzer:
 - H2 (Dynamic Data Stream Analyzer):
   - How would you handle concurrent operations?
   - Can you optimize the memory usage for large streams?
+ 
+
+Statement
+For the given stream of message requests and their timestamps as input, you must implement a logger rate limiter system that decides whether the current message request is displayed. The decision depends on whether the same message has already been displayed in the last SS seconds. If yes, then the decision is FALSE, as this message is considered a duplicate. Otherwise, the decision is TRUE.
+Note: Several message requests, though received at different timestamps, may carry identical messages.
+Constraint:
+* 1≤ request.length ≤100
+* 0≤ timestamp ≤1000
+* Timestamps are in ascending order.
+* Messages can be written in lowercase or uppercase English alphabets.
+
